@@ -21,7 +21,6 @@ class UserRepositoryImpl @Inject constructor(
         password: String,
         confPassword: String
     ) : Resource<UiText>{
-        delay(5000L)
         return try {
             val response = api.register(AccountRequest(email,password,confPassword))
             Resource.Success(UiText.DynamicString(response.body()?.message.orEmpty()))
