@@ -19,3 +19,5 @@ include ':register'
 include ':register:register_presentation'
 include ':register:register_domain'
 include ':register:register_data'
+
+include ':core_ui'

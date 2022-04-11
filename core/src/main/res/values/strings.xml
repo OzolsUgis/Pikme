@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="user_register_successful">Account created</string>
+    <string name="io_exception">Failed to reach server, check your internet connection</string>
+    <string name="http_exception">Unknown error occurred</string>
+</resources>

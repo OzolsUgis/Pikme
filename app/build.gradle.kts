@@ -90,5 +90,11 @@ dependencies {
     kaptAndroidTest(DaggerHilt.hiltCompiler)
     androidTestImplementation(Testing.testRunner)
 
+    implementation(project(Modules.core))
+    implementation(project(Modules.registerPresentation))
+    implementation(project(Modules.core_ui))
+    implementation(project(Modules.registerDomain))
+    implementation(project(Modules.registerData))
+
 
 }
