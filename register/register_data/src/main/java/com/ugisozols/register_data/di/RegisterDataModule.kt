@@ -34,12 +34,4 @@ object RegisterDataModule {
     ): UserRepository {
         return UserRepositoryImpl(api)
     }
-
-    @Provides
-    @Singleton
-    fun provideRegisterUseCase(
-        repository: UserRepository
-    ): RegisterUseCase {
-        return RegisterUseCase(repository)
-    }
 }

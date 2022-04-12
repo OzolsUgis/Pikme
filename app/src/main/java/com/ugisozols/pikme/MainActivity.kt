@@ -13,6 +13,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ugisozols.core.navigation.Route
 import com.ugisozols.pikme.ui.theme.PikmeTheme
+import com.ugisozols.register_presentation.login_screen.LoginScreen
 import com.ugisozols.register_presentation.register_screen.RegisterScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,10 +31,15 @@ class MainActivity : ComponentActivity() {
                 ) {
                     NavHost(
                         navController = navController,
-                        startDestination = Route.REGISTER
+                        startDestination = Route.LOGIN
                     ){
                         composable(Route.REGISTER){
                             RegisterScreen(scaffoldState = scaffoldState)
+                        }
+                        composable(Route.LOGIN){
+                            LoginScreen(scaffoldState = scaffoldState)
+                        }
+                        composable(Route.NEXT){
                         }
                     }
                 }

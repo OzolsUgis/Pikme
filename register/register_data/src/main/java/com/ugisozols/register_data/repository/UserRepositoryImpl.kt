@@ -7,6 +7,7 @@ import com.ugisozols.core.util.UiText
 import com.ugisozols.core.R
 import com.ugisozols.register_data.data.remote.UserApi
 import com.ugisozols.register_data.data.remote.requests.AccountRequest
+import com.ugisozols.register_data.data.remote.requests.LoginRequest
 import com.ugisozols.register_domain.repository.UserRepository
 import kotlinx.coroutines.delay
 import okio.IOException
@@ -14,23 +15,50 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
-    private val api : UserApi
-) : UserRepository{
+    private val api: UserApi
+) : UserRepository {
+
     override suspend fun register(
         email: String,
         password: String,
         confPassword: String
-    ) : Resource<UiText>{
+    ): Resource<UiText> {
         return try {
-            val response = api.register(AccountRequest(email,password,confPassword))
+            val response = api.register(AccountRequest(email, password, confPassword))
             Resource.Success(UiText.DynamicString(response.body()?.message.orEmpty()))
 
-        }catch (e : IOException){
+        } catch (e: IOException) {
             e.printStackTrace()
             Resource.Error(
                 UiText.StringResource(R.string.io_exception)
             )
-        }catch (e: HttpException){
+        } catch (e: HttpException) {
+            e.printStackTrace()
+            Resource.Error(
+                UiText.StringResource(R.string.http_exception)
+            )
+        }
+    }
+
+    override suspend fun login(
+        email: String,
+        password: String
+    ): Resource<UiText> {
+        return try {
+            val response = api.login(LoginRequest(email, password))
+            if(response.body()?.successful == true){
+                Resource.Success()
+            }else{
+                Resource.Error(
+                    UiText.DynamicString(response.body()?.message.orEmpty())
+                )
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+            Resource.Error(
+                UiText.StringResource(R.string.io_exception)
+            )
+        } catch (e: HttpException) {
             e.printStackTrace()
             Resource.Error(
                 UiText.StringResource(R.string.http_exception)
