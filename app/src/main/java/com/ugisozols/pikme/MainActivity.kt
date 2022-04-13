@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ugisozols.core.navigation.Route
+import com.ugisozols.pikme.navigation.navigate
 import com.ugisozols.pikme.ui.theme.PikmeTheme
 import com.ugisozols.register_presentation.login_screen.LoginScreen
 import com.ugisozols.register_presentation.register_screen.RegisterScreen
@@ -37,7 +38,10 @@ class MainActivity : ComponentActivity() {
                             RegisterScreen(scaffoldState = scaffoldState)
                         }
                         composable(Route.LOGIN){
-                            LoginScreen(scaffoldState = scaffoldState)
+                            LoginScreen(
+                                scaffoldState = scaffoldState,
+                                navController::navigate
+                            )
                         }
                         composable(Route.NEXT){
                         }

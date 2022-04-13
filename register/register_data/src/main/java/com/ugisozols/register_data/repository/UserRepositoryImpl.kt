@@ -45,6 +45,7 @@ class UserRepositoryImpl @Inject constructor(
         password: String
     ): Resource<UiText> {
         return try {
+            Resource.Loading<UiText>()
             val response = api.login(LoginRequest(email, password))
             if(response.body()?.successful == true){
                 Resource.Success()

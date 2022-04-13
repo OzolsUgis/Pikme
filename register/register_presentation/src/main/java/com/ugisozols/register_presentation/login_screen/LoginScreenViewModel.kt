@@ -27,6 +27,8 @@ class LoginScreenViewModel @Inject constructor(
     var password = mutableStateOf("")
         private set
 
+    var isLoading = mutableStateOf(false)
+
     private var _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
@@ -36,6 +38,12 @@ class LoginScreenViewModel @Inject constructor(
 
     fun setPassword(passwordInput: String) {
         password.value = passwordInput
+    }
+
+    fun onRegisterClick(){
+        viewModelScope.launch {
+            _uiEvent.send(UiEvent.Navigate(route = Route.REGISTER))
+        }
     }
 
     fun onEvent(event: LoginScreenEvents) {
@@ -48,6 +56,7 @@ class LoginScreenViewModel @Inject constructor(
                     )
                     when (login) {
                         is Resource.Error -> {
+                            isLoading.value = false
                             _uiEvent.send(
                                 UiEvent.ShowSnackbar(
                                     login.message ?: UiText.StringResource(
@@ -56,8 +65,11 @@ class LoginScreenViewModel @Inject constructor(
                                 )
                             )
                         }
-                        is Resource.Loading -> Unit
+                        is Resource.Loading -> {
+                            isLoading.value = true
+                        }
                         is Resource.Success -> {
+                            isLoading.value = false
                             _uiEvent.send(
                                 UiEvent.Navigate(Route.NEXT)
                             )
