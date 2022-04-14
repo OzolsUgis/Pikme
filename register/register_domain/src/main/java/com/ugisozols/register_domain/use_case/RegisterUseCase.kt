@@ -14,6 +14,10 @@ class RegisterUseCase(
         password : String,
         confPassword: String
     ) : Resource<UiText> {
-        return repository.register(email, password, confPassword)
+        return repository.register(
+            email.lowercase().trim(),
+            password.trim(),
+            confPassword.trim()
+        )
     }
 }

@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ugisozols.core.R
+import com.ugisozols.core.domain.Preferences
 import com.ugisozols.core.navigation.Route
 import com.ugisozols.core.util.Resource
 import com.ugisozols.core.util.UiEvent
@@ -19,7 +20,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginScreenViewModel @Inject constructor(
-    private val useCases: UserUseCases
+    private val useCases: UserUseCases,
+    private val preferences: Preferences
 ) : ViewModel() {
     var email = mutableStateOf("")
         private set
@@ -70,6 +72,7 @@ class LoginScreenViewModel @Inject constructor(
                         }
                         is Resource.Success -> {
                             isLoading.value = false
+                            preferences.saveIsLoggedIn(true)
                             _uiEvent.send(
                                 UiEvent.Navigate(Route.NEXT)
                             )

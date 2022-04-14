@@ -9,6 +9,9 @@ class LoginUseCase @Inject constructor(
     private val repository : UserRepository
 ){
     suspend operator fun invoke(email : String, password : String) : Resource<UiText>{
-        return repository.login(email, password)
+        val trimmedEmail = email.trim().lowercase()
+        val trimmedPassword = password.trim()
+
+        return repository.login(trimmedEmail, trimmedPassword)
     }
 }
