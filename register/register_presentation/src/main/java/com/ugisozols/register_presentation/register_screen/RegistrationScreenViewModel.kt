@@ -31,7 +31,7 @@ class RegistrationScreenViewModel @Inject constructor(
         private set
 
     var registrationLoading = mutableStateOf(false)
-        private set
+
 
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
@@ -62,7 +62,7 @@ class RegistrationScreenViewModel @Inject constructor(
 
                             _uiEvent.send(
                                 UiEvent.ShowSnackbar(
-                                    registration.data ?: UiText.StringResource(
+                                    registration.message ?: UiText.StringResource(
                                         R.string.http_exception
                                     )
                                 )

@@ -6,7 +6,9 @@
     <string name="http_exception">Unknown error occurred</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="confirmed_password">Confirm password</string>
     <string name="login_button">Login </string>
+    <string name="register_button">Register</string>
     <string name="forgot_password">Forgot password</string>
     <string name="create_account">Create account</string>
 </resources>

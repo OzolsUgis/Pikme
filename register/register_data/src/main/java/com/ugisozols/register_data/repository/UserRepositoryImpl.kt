@@ -26,7 +26,13 @@ class UserRepositoryImpl @Inject constructor(
         return try {
             val response = api.register(AccountRequest(email, password, confPassword))
             Resource.Success(UiText.DynamicString(response.body()?.message.orEmpty()))
-
+            if(response.body()?.successful == true){
+                Resource.Success()
+            }else{
+                Resource.Error(
+                    UiText.DynamicString(response.body()?.message.orEmpty())
+                )
+            }
         } catch (e: IOException) {
             e.printStackTrace()
             Resource.Error(
