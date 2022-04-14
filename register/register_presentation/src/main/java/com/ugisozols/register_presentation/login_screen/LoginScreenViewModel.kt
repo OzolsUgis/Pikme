@@ -73,6 +73,7 @@ class LoginScreenViewModel @Inject constructor(
                         is Resource.Success -> {
                             isLoading.value = false
                             preferences.saveIsLoggedIn(true)
+                            preferences.saveLoggedEmail(email.value.trim().lowercase())
                             _uiEvent.send(
                                 UiEvent.Navigate(Route.NEXT)
                             )

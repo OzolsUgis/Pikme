@@ -19,4 +19,17 @@ class PreferencesImpl(
             true
         )
     }
+
+    override fun saveLoggedEmail(email: String) {
+        sharedPref.edit()
+            .putString(Preferences.KEY_LOGGED_EMAIL,email)
+            .apply()
+    }
+
+    override fun loadLoggedInEmail(): String? {
+        return sharedPref.getString(
+            Preferences.KEY_LOGGED_EMAIL,
+            null
+        )
+    }
 }
