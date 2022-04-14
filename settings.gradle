@@ -21,3 +21,9 @@ include ':register:register_domain'
 include ':register:register_data'
 
 include ':core_ui'
+
+include ':setup'
+include ':setup:setup_data'
+include ':setup:setup_domain'
+
+include ':setup:setup_presentation'

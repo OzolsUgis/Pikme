@@ -95,6 +95,9 @@ dependencies {
     implementation(project(Modules.core_ui))
     implementation(project(Modules.registerDomain))
     implementation(project(Modules.registerData))
+    implementation(project(Modules.setupData))
+    implementation(project(Modules.setupPresentation))
+    implementation(project(Modules.setupDomain))
 
 
 }

@@ -18,6 +18,10 @@
             <option value="$PROJECT_DIR$/register/register_data" />
             <option value="$PROJECT_DIR$/register/register_domain" />
             <option value="$PROJECT_DIR$/register/register_presentation" />
+            <option value="$PROJECT_DIR$/setup" />
+            <option value="$PROJECT_DIR$/setup/setup_data" />
+            <option value="$PROJECT_DIR$/setup/setup_domain" />
+            <option value="$PROJECT_DIR$/setup/setup_presentation" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -13,6 +13,8 @@ plugins {
     id(Plugins.kotlinAndroid) version Plugins.kotlinAndroid_version apply false
     id(Plugins.kotlinJvm) version Plugins.kotlinAndroid_version apply false
 
+
+
 }
 tasks.register("clean", Delete::class){
     delete(rootProject.buildDir)
