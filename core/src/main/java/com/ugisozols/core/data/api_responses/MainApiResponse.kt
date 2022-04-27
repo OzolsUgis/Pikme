@@ -1,4 +1,4 @@
-package com.ugisozols.register_data.data.remote.responses
+package com.ugisozols.core.data.api_responses
 
 data class MainApiResponse<T>(
     val successful : Boolean,

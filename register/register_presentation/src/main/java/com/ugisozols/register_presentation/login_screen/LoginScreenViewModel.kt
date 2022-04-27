@@ -74,6 +74,8 @@ class LoginScreenViewModel @Inject constructor(
                             isLoading.value = false
                             preferences.saveIsLoggedIn(true)
                             preferences.saveLoggedEmail(email.value.trim().lowercase())
+                            preferences.saveAuthToken(login.data?.token ?: "")
+                            Log.d("My_app", "Token - ${login.data?.token}")
                             _uiEvent.send(
                                 UiEvent.Navigate(Route.NEXT)
                             )

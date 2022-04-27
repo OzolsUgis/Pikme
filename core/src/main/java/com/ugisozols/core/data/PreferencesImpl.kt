@@ -32,4 +32,18 @@ class PreferencesImpl(
             null
         )
     }
+
+    override fun saveAuthToken(token: String) {
+        sharedPref.edit()
+            .putString(Preferences.KEY_AUTH_TOKEN,token)
+            .apply()
+    }
+
+
+    override fun loadAuthToken(): String? {
+        return sharedPref.getString(
+            Preferences.KEY_AUTH_TOKEN,
+            null
+        )
+    }
 }

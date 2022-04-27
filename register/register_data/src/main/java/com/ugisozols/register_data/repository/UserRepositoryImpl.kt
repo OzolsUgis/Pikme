@@ -5,6 +5,7 @@ import android.util.Log
 import com.ugisozols.core.util.Resource
 import com.ugisozols.core.util.UiText
 import com.ugisozols.core.R
+import com.ugisozols.core.data.api_responses.LoginResponse
 import com.ugisozols.register_data.data.remote.UserApi
 import com.ugisozols.register_data.data.remote.requests.AccountRequest
 import com.ugisozols.register_data.data.remote.requests.LoginRequest
@@ -49,12 +50,12 @@ class UserRepositoryImpl @Inject constructor(
     override suspend fun login(
         email: String,
         password: String
-    ): Resource<UiText> {
+    ): Resource<LoginResponse> {
         return try {
-            Resource.Loading<UiText>()
+            Resource.Loading<LoginResponse>()
             val response = api.login(LoginRequest(email, password))
             if(response.body()?.successful == true){
-                Resource.Success()
+                Resource.Success(response.body()?.data)
             }else{
                 Resource.Error(
                     UiText.DynamicString(response.body()?.message.orEmpty())
