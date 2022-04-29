@@ -17,7 +17,7 @@ private val DarkColorPalette = darkColors(
 private val LightColorPalette = lightColors(
     primary = DarkGray,
     primaryVariant = LightGray,
-    secondary = Black
+    secondary = AppBlack
 )
 
 @Composable

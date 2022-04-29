@@ -16,6 +16,7 @@ import com.ugisozols.pikme.navigation.navigate
 import com.ugisozols.pikme.ui.theme.PikmeTheme
 import com.ugisozols.register_presentation.login_screen.LoginScreen
 import com.ugisozols.register_presentation.register_screen.RegisterScreen
+import com.ugisozols.setup_presentation.username_update_screen.UpdateUsernameScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,7 +44,14 @@ class MainActivity : ComponentActivity() {
                                 navController::navigate
                             )
                         }
-                        composable(Route.NEXT){
+                        composable(Route.UPDATE_USERNAME){
+                            UpdateUsernameScreen(
+                                navController::navigate,
+                                scaffoldState
+                            )
+                        }
+                        composable(Route.UPDATE_IMAGE){
+
                         }
                     }
                 }

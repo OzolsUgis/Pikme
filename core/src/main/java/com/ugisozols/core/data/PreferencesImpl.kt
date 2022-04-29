@@ -46,4 +46,17 @@ class PreferencesImpl(
             null
         )
     }
+
+    override fun saveUserId(string: String) {
+        sharedPref.edit()
+            .putString(Preferences.KEY_USERID,string)
+            .apply()
+    }
+
+    override fun loadUserId(): String? {
+        return sharedPref.getString(
+            Preferences.KEY_USERID,
+            null
+        )
+    }
 }

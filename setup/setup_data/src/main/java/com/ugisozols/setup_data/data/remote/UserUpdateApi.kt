@@ -20,8 +20,6 @@ interface UserUpdateApi {
     ) : MainApiResponse<Unit>
 
     companion object{
-
-        const val  BASE_URL = "http://192.168.0.103:8080"
         const val QUERY_PARAMETER_USERID = "userid"
         const val QUERY_PARAMETER_USERNAME = "username"
     }

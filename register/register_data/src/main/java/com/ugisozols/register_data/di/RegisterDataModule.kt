@@ -1,6 +1,7 @@
 package com.ugisozols.register_data.di
 
 import com.google.gson.Gson
+import com.ugisozols.core.util.Constants.BASE_URL
 import com.ugisozols.register_data.data.remote.UserApi
 import com.ugisozols.register_data.repository.UserRepositoryImpl
 import com.ugisozols.register_domain.repository.UserRepository
@@ -21,7 +22,7 @@ object RegisterDataModule {
     @Singleton
     fun provideUserApi() : UserApi {
         return Retrofit.Builder()
-            .baseUrl(UserApi.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(UserApi::class.java)

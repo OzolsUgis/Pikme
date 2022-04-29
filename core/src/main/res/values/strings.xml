@@ -11,4 +11,11 @@
     <string name="register_button">Register</string>
     <string name="forgot_password">Forgot password</string>
     <string name="create_account">Create account</string>
+    <string name="username_updated">Name updated</string>
+    <string name="image_updated">Image updated</string>
+    <string name="setup_greeting">Hello, lets start to set up your profile please enter your name</string>
+    <string name="setup_name">Enter name</string>>
+    <string name="next_page">Next</string>
+    <string name="input_error_field_empty">Please fill this field</string>
+
 </resources>
